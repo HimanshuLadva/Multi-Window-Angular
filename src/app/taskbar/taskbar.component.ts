@@ -17,6 +17,7 @@ export class TaskbarComponent {
       .pipe(filter((res) => res != null))
       .subscribe((res) => {
         this.dialogs = res;
+        console.log('Dialogs: ', this.dialogs);
       });
   }
 
