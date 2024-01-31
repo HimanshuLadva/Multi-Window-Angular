@@ -1,0 +1,25 @@
+
+.taskbar {
+   height: 45px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   background-color: #E3A795;
+}
+
+.dialog {
+    display: flex;
+    height: 42px;
+    width: 100px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-around;
+    gap: 10px;
+    border: 3px solid black;
+    font-weight: 500;
+    padding-left: 4px;
+}
+
+.close {
+    margin-top: 4px;
+}

@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div style="position: relative;">
+        <div class="header">
+            <div>Add {{title}}</div>
+            <div class="action">
+                <div class="minimize" (click)="minimize()">---</div>
+                <div (click)="close()"><mat-icon>close</mat-icon></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput formControlName="Name">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Age</mat-label>
+                        <input matInput formControlName="Age">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>College</mat-label>
+                        <input matInput formControlName="College">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Enroll</mat-label>
+                        <input matInput formControlName="Enroll">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Branch</mat-label>
+                        <input matInput formControlName="Branch">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Code</mat-label>
+                        <input matInput formControlName="Code">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <button mat-raised-button color="accent" type="submit">Save</button>
+            </div>
+        </div>
+    </div>
+</form>

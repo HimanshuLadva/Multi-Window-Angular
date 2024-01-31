@@ -1,0 +1,49 @@
+.header {
+    background-color: #ECECEC;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+}
+
+.minimize {
+    align-self: center;
+}
+.action {
+    display: flex;
+    justify-content: flex-end;
+    gap:11px;
+    cursor: pointer;
+}
+
+.action div:first-child {
+    flex: 3;
+}
+.action div:last-child {
+    flex: 2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px;
+    height: 187px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 10px;
+    background-color: #673ab7;
+}
+
+.footer div {
+    padding: 5px;
+}
