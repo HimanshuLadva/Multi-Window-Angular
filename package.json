@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "publish": "ng build --prod && npm publish"
+    "publish": "ng build && npm publish"
   },
   "private": true,
   "dependencies": {
