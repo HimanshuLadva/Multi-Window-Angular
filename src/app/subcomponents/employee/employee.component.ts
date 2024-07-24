@@ -21,12 +21,12 @@ export interface FormInterface {
 })
 export class EmployeeComponent {
   d: FormInterface = {
-    Name: 'Himanshu',
-    Age: 'Himanshu',
-    College: 'Himanshu',
-    Enroll: 'Himanshu',
-    Code: 'Himanshu',
-    Branch: 'Himanshu',
+    Name: '',
+    Age: '',
+    College: '',
+    Enroll: '',
+    Code: '',
+    Branch: '',
   };
   title: string = 'Employee';
   formData$: Observable<any>;
@@ -35,7 +35,7 @@ export class EmployeeComponent {
     private dialogRef: MatDialogRef<EmployeeComponent>,
     private fb: FormBuilder,
     private dialogService: DialogService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: FormInterface
   ) {}
   form: FormGroup;
 
@@ -54,46 +54,9 @@ export class EmployeeComponent {
   }
 
   loadForm() {
-    // this.form.patchValue(this.d);
-    const observable = this.dialogService.dialogDataObservable;
-    observable.subscribe((data: FormInterface) => {
-      console.log('observable', data);
-      // this.form.patchValue(data);
-      this.fillFormData(data);
-    });
-
-    /* await this.dialogService.dialogDataObservable
-      .toPromise()
-      .then((res: FormInterface) => {
-        // this.d = { ...res };
-        console.log('Employee', res);
-        this.form.patchValue(res);
-      })
-      .catch((res) => {
-        console.log('Error', res);
-      }); */
-    /* this.dialogService.dialogDataObservable.subscribe((res: FormInterface) => {
-      console.log('Employee', res['Name']);
-      if (res) {
-        const { Name, Age, College, Enroll, Branch, Code } = res;
-        this.d = { ...res };
-        this.form.patchValue(this.d);
-        console.log('Employee', this.form.controls['Name'].value);
-      }
-    }); */
+    this.form.patchValue(this.data);
   }
-
-  fillFormData(data: any) {
-    this.form.patchValue({
-      Name: data.Name,
-      College: data.College,
-      Branch: data.Branch,
-      Code: data.Code,
-      Enroll: data.Enroll,
-      Age: data.Age,
-    });
-  }
-
+  
   submitForm() {
     this.d = this.form.value;
     this.form.reset();

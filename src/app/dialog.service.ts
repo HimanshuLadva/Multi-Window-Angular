@@ -13,10 +13,9 @@ export class DialogService {
   private dialogSubject = new BehaviorSubject<any[]>(null);
   dialogObservable = this.dialogSubject.asObservable();
 
-  private dialogDataSubject = new Subject();
-  dialogDataObservable = this.dialogDataSubject.asObservable();
+  // private dialogDataSubject = new BehaviorSubject<any>(null);
+  // dialogDataObservable = this.dialogDataSubject.asObservable();
   dialogArr: any[] = [];
-  IsInEditMode: boolean = false;
 
   constructor(private dialog: MatDialog) {}
   openDialogInAdd(page: string, data = null) {
@@ -24,8 +23,8 @@ export class DialogService {
 
     console.log('dialog Service', data);
     if (data) {
-      this.dialogDataSubject.next(data);
-      this.IsInEditMode = true;
+      // this.dialogDataSubject.next(data);
+      // this.IsInEditMode = true;
     }
 
     switch (page) {
@@ -45,7 +44,7 @@ export class DialogService {
       width: '700px',
       height: '300.40px',
       disableClose: true,
-      data: this.IsInEditMode,
+      data: data || null,
     });
 
     if (this.dialogArr.findIndex((ele) => ele['page'] == page) == -1) {
@@ -63,15 +62,21 @@ export class DialogService {
     this.dialogArr.pop();
     this.dialogSubject.next(this.dialogArr);
     dialogRef.close();
+    if (this.dialogArr.length == 0) {
+      // this.dialogDataSubject.complete();
+      this.dialogSubject.complete();
+    }
   }
 
   minimize(dialogRef: any, data: any, page: string) {
-    this.dialogArr.map((ele) => {
+    this.dialogArr = this.dialogArr.map((ele) => {
       if (ele['page'] === page) {
         ele['data'] = data;
       }
       return ele;
     });
+    console.log('minimize', this.dialogArr, page);
+    this.dialogSubject.next(this.dialogArr);
     dialogRef.close();
   }
 

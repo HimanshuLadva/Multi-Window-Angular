@@ -3,8 +3,10 @@
         <div class="header">
             <div>Add {{title}}</div>
             <div class="action">
-                <div class="minimize" (click)="minimize()">---</div>
-                <div (click)="close()"><mat-icon>close</mat-icon></div>
+                <div class="action">
+                    <div class="minimize" (click)="minimize()">---</div>
+                    <div (click)="close()"><mat-icon>close</mat-icon></div>
+                </div>
             </div>
         </div>
         <div class="container">
@@ -13,36 +15,42 @@
                     <mat-form-field>
                         <mat-label>Name</mat-label>
                         <input matInput formControlName="Name">
+                        <!-- <input type="text" name="Name" formControlName="Name" value="{{d.Name}}"> -->
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>Age</mat-label>
                         <input matInput formControlName="Age">
+                        <!-- <input type="text" name="Age" formControlName="Age"> -->
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>College</mat-label>
                         <input matInput formControlName="College">
+                        <!-- <input type="text" name="College" formControlName="College"> -->
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>Enroll</mat-label>
                         <input matInput formControlName="Enroll">
+                        <!-- <input type="text" name="Enroll" formControlName="Enroll"> -->
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>Branch</mat-label>
                         <input matInput formControlName="Branch">
+                        <!-- <input type="text" name="Branch" formControlName="Branch"> -->
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field>
                         <mat-label>Code</mat-label>
                         <input matInput formControlName="Code">
+                        <!-- <input type="text" name="Code" formControlName="Code" value=""> -->
                     </mat-form-field>
                 </div>
             </div>

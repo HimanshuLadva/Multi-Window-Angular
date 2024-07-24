@@ -1,9 +1,14 @@
 .container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 15px 20px;
-    gap: 10px;
     width: 500px;
+}
+
+.row {
+    display: flex;
+    gap: 13px;
 }
 

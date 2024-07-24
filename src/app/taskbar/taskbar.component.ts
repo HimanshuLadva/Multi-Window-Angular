@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DialogService } from '../dialog.service';
 import { filter } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-taskbar',
@@ -17,6 +18,7 @@ export class TaskbarComponent {
       .pipe(filter((res) => res != null))
       .subscribe((res) => {
         this.dialogs = res;
+        console.log('Dialogs: ', this.dialogs);
       });
   }
 
@@ -25,5 +27,7 @@ export class TaskbarComponent {
       this.dialogService.openDialogInAdd(page, data);
   }
 
-  close() {}
+  close(dialog: MatDialog) {
+     this.dialogService.close(dialog);
+  }
 }
